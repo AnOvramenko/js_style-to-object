@@ -16,11 +16,11 @@ function convertToObject(sourceString) {
     })
     .filter((item) => item.length > 1);
 
-  for (let i = 0; i < result.length; i++) {
-    if (result[i][1].split(',').length > 1) {
-      result[i][1] = result[i][1].split(',').join(',\n');
+  result.forEach(([key, value], i) => {
+    if (value.split(',').length > 1) {
+      result[i][1] = value.split(',').join(',\n');
     }
-  }
+  });
 
   return result.reduce((acc, [key, value]) => {
     return { ...acc, [key]: value };
