@@ -6,7 +6,7 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-  const initial = sourceString.replaceAll('\n', '').split(';');
+  const initial = sourceString.replace(/\n/g, '').split(';');
 
   const result = initial
     .map((row) => {
